@@ -1,13 +1,6 @@
 #include <stdio.h>
 #include <string.h>
 
-#define DEST_SIZE 40
-
-char sendToPowershell(char directory_name)
-{
-    system("powershell.exe -Command pwd");
-}
-
 char buildCommand(char args[], char path[])
 {
     char command[1000] = "powershell.exe -Command Remove-Item ";
@@ -40,7 +33,6 @@ int main(int argc, char const *argv[])
     if( argc == 3 ) {
         if (argv[1][0] == '-')
         {
-            //printf("Sending command\n");
             buildCommand(argv[1], argv[2]);
         }
         else {
