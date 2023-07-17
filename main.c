@@ -36,14 +36,19 @@ int main(int argc, char const *argv[])
             buildCommand(argv[1], argv[2]);
         }
         else {
-            printf("Invalid arguments.\n");
+            printf("Invalid arguments.\nUsage: rm <args> [file]\n");
         }
     }
+    else if( argc == 2 ) {
+        char command[1000] = "powershell.exe -Command Remove-Item ";
+        strcat(command, argv[1]);
+        system(command);
+    }
     else if( argc > 3 ) {
-        printf("Too many arguments supplied.\n");
+        printf("Too many arguments supplied.\nUsage: rm <args> [file]\n");
     }
     else {
-        printf("Two arguments expected.\n");
+        printf("Invalid usage.\nUsage: rm <args> [file]\n");
     }
     return 0;
 }
